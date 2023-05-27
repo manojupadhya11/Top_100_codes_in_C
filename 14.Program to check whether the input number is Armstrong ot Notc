@@ -1,0 +1,35 @@
+//Program to check whether the input number is Armstrong number or not
+#include<math.h>
+#include<stdio.h>
+int order(int x){
+    int length = 0;
+    while(x){
+        length++;
+        x = x/10;
+    }
+    return length;
+}
+int getArmstrong(int num, int order){
+    if(num == 0){
+        
+        return 0;
+    }    
+    
+    int digit = num%10;
+    return pow(digit, order )+ getArmstrong(num/10, order);
+    
+}
+int main(){
+    int num = 0;
+    printf("Enter a number");
+    scanf("%d", &num);
+    int len = order(num);
+
+    if(num == getArmstrong(num,len))
+    {
+        printf("The given number %d is Armstrong", num);
+    }else{
+        printf("The given number %d is not a Armstrong", num);
+    }
+
+}
